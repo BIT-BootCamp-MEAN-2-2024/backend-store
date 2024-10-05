@@ -1,4 +1,6 @@
 const express = require( 'express' );
+const cors = require( 'cors' );
+
 const app = express();
 const PORT = process.env.PORT;
 
@@ -8,6 +10,7 @@ const dbConection = require( './config/mongo.config' );
 dbConection();
 
 /** MIDDLEWARE: */
+app.use( cors() );                      // Middleware: Permite compartir recursos de la API con terceros
 app.use( express.json() );              // Middleware: Permite manejar JSON en las solicitudes
 
 /** EndPoints de nuestro servidor */
