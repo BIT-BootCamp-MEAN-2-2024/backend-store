@@ -13,7 +13,16 @@ const dbRegisterUser = async ( newUser ) => {
 
     dbUser.password = hashPassword;     // Reescribiendo el password original por el encriptado
 
-    return await dbUser.save();   // Guarda en la base de datos y devuelve el usuario registrado
+    const bjsonUser = await dbUser.save();   // Guarda en la base de datos 
+    const dataUser = bjsonUser.toObject();   // Convierte datos registrados en un Objeto JavaScript
+    
+    /** Elimina propiedades del usuario que no deseamos devolver al cliente */
+    delete dataUser.password;
+    delete dataUser.createdAt;
+    delete dataUser.updatedAt;
+    delete dataUser.__v;
+
+    return dataUser;
 }
 
 
