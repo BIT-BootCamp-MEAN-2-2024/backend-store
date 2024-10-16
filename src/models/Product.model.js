@@ -28,6 +28,10 @@ const ProductSchema = new Schema({
     state: {
         type: Boolean,
         default: true
+    },
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
     }
 }, {
     timestamps: true        // Agrega campos de fecha: creacion y actualizacion del documento

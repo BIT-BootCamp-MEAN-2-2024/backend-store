@@ -11,7 +11,7 @@ const { authUser, greeting } = require('../middlewares/auth-user.middleware');
 router.post( '/', authUser, createProduct  );           // Crear un producto
 
 router.get( '/', getProducts );                         // Obtiene todos los productos
-router.get( '/:id', authUser, getProductById );         // Obtiene un producto por su ID                            
+router.get( '/:id', getProductById );                   // Obtiene un producto por su ID                            
 
 // router.put( '/', authUser, updateProductPut );        // Actualiza todos los campos de un producto
 router.patch( '/:id', authUser, updateProductPatch );    // Actualiza parcialmente los campos de un producto

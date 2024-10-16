@@ -51,8 +51,11 @@ async function getProductById( req, res ) {
 }
 
 async function createProduct( req, res ) {
+    const payload = req.authUser;
     const inputData = req.body;
     console.log( inputData );       // Testing
+
+    inputData.userId = payload.id;
 
     try {
         const data = await dbInsertProduct( inputData );
