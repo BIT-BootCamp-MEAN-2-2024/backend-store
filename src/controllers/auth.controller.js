@@ -79,7 +79,8 @@ async function login( req, res ) {
         // Paso 5: Responder al cliente enviandole el Token
         res.json({
             ok: true,
-            token
+            token,
+            data: userFound
         });
 
     } 
