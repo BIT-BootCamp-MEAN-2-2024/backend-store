@@ -35,6 +35,9 @@ const getCategoryById = async ( req, res ) => {
 
 const createCategory = async ( req, res ) => {
     const inputData = req.body;
+    const userId = req.authUser.id;
+
+    inputData.userId = userId;
     
     try {
         const data = await registerCategory( inputData );

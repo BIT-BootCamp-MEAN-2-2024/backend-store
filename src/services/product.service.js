@@ -3,7 +3,7 @@
 const ProductModel = require("../models/Product.model");
 
 const dbGetProducts = async () => {
-    return await ProductModel.find().populate('userId');
+    return await ProductModel.find().populate(['userId','category']);
 }
 
 const dbGetProductById = async ( _id ) => {

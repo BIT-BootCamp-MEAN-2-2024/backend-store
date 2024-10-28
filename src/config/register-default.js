@@ -6,18 +6,18 @@ const users = require( "./data" );
 const createDefaultUsers = async () => {
     
     try {
-
         // Crea roles por defecto
         const registeredUsers = await Promise.all(
-            users.map(async (userData) => {
+            users.map( async (userData) => {
                 const userFound = await UserModel.findOne({ username: userData.username });
 
                 if (!userFound) {
                     userData.password = encryptedPassword( userData.password );
 
-                    const user = new UserModel(userData);
+                    const user = new UserModel( userData );
                     return user.save();
                 }
+                
                 return null; // No guarda si el usuario ya existe
             })
         );

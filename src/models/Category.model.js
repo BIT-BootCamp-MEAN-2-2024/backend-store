@@ -8,7 +8,11 @@ const CategorySchema = new Schema(
             required: true,
             default: 'Uncategorized'
         },
-        description: String
+        description: String,
+        userId: {
+            type: Schema.Types.ObjectId,
+            ref: 'users'
+        }
     },
     {   
         timestamps: true
