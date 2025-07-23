@@ -16,6 +16,7 @@ app.use( cors() );                      // Middleware: Permite compartir recurso
 app.use( express.json() );              // Middleware: Permite manejar JSON en las solicitudes
 
 /** EndPoints de nuestro servidor */
+app.use( '/', ( req, res ) => res.json({ msg: 'Bienvenido a Store API' }) );
 app.use( '/api/products', require( './routes/product.routes' ) );   // Middleware: Activa solicitudes que comienzan con el prefijo /api/products
 app.use( '/api/auth', require( './routes/auth.routes' ) );          // Middleware: Activa solicitudes que comienzan con el prefijo /api/auth
 app.use( '/api/categories', require( './routes/category.routes' ) );// Middleware: Activa solicitudes que comienzan con el prefijo /api/categories
